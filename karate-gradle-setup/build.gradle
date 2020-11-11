@@ -35,3 +35,15 @@ publishing {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
+sourceSets {
+    test {
+        resources {
+            srcDirs = ['src/test/resources','src/test/java']
+        }
+    }
+}
+
+test {
+    useJUnitPlatform ()
+}
