@@ -2,3 +2,9 @@
 **/*.iml
 **/.gradle
 **/target
+**/out
+**/build
+
+**/.classpath
+**/.project
+**/.settings
