@@ -47,3 +47,8 @@ sourceSets {
 test {
     useJUnitPlatform ()
 }
+
+task karateExecute(type: JavaExec) {
+    classpath = sourceSets.test.runtimeClasspath
+    main = System.properties.getProperty('mainClass')
+}
