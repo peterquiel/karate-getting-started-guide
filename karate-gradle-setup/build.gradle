@@ -40,6 +40,7 @@ sourceSets {
     test {
         resources {
             srcDirs = ['src/test/resources','src/test/java']
+            exclude '**/*.java'
         }
     }
 }
