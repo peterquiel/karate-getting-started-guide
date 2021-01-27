@@ -38,9 +38,18 @@ Feature: sample karate test script
 
     * def id = response.id
     * print 'created id is: ', id
-
-    Given path id
-    # When method get
-    # Then status 200
-    # And match response contains user
   
+
+  Scenario: get first users and fail the match to demo new improved error reporting
+    Given path 'users'
+    When method get
+    Then status 200
+
+    * def first = response[0]
+
+    Given path 'users', first.id
+    When method get
+    Then status 200
+
+    * match response contains {address : {zipcode: "92998-3874"}}
+

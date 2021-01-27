@@ -1,0 +1,21 @@
+<table class="table table-striped">    
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user: users" th:classappend="row.even ? 'even' : 'odd'">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td>
+                <div th:text="${user.company.name}"></div>
+                <div th:text="${user.company.catchPhrase}"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
