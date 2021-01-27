@@ -1,6 +1,6 @@
 Feature: New Karate 1.0 Features in Action
 
-Scenario: Html Templateing
+Scenario: Html Templating
     Given url 'https://jsonplaceholder.typicode.com'
     * path 'users'
     When method get
@@ -9,11 +9,11 @@ Scenario: Html Templateing
     * doc {read : 'users.html'}
 
 
-  Scenario: Pretty Printed Matcher
+  Scenario: Pretty Printed Matcher - 1
   * def actual = {a: 1, b: 2, c : {c1: 1, c2: 2}}
   * match actual == {a: 1, b: 2, c : {c1: 1, c2: 3}}
 
-  Scenario: Matcher pretty, contains used wrongly
+  Scenario: Pretty Printed Matcher - 2
   * def actual =
   """
 {
@@ -30,7 +30,7 @@ Scenario: Html Templateing
     * match actual contains {company : {name : "Romaguera-Crona"}}
 
 
-  Scenario: Matcher pretty, type dosen't match
+  Scenario: retty Printed Matcher - 3
   * def actual =
   """
 {
