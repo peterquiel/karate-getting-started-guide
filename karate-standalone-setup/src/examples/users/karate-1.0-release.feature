@@ -56,7 +56,7 @@ Scenario: Html Templating
     * log("test")
 
 
-    Scenario Outline: Js Function in Data Driven Test Case: Creating User <email>
+    Scenario Outline: Js Function in Data Driven Test Case: Creating User email
     * def user =
       """
       {
