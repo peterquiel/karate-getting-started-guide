@@ -19,30 +19,17 @@ import java.io.File;
  */
 public class DemoMockTestRunner  {
 
-    private static MockServer mockServer;
-
     @RegisterExtension
-    static KarateMockServerExtension mockServerRule = KarateMockServerExtension.create(DemoMockTestRunner.class, "demo-mock.feature");
-
-    @BeforeAll
-    static void startMockServer() {
-//        final File mockFile = ResourceUtils.getFileRelativeTo(DemoMockTestRunner.class, "demo-mock.feature");
-//        mockServer = MockServer.feature(mockFile).build();
-    }
-
-    @AfterAll
-    static void stopMockServer() {
-
-        if (mockServer != null) {
-            mockServer.stop();
-        }
-    }
+    static KarateMockServerExtension mockServerRule = KarateMockServerExtension
+        .create(DemoMockTestRunner.class, "demo-mock.feature");
 
     @Karate.Test
     Karate testDemoMockServer() {
 
         final Karate runner = Karate.run("demo-mock-test");
-        runner.builder().systemProperty("mock_server_port", String.valueOf(mockServerRule.getPort()));
-        return runner.relativeTo(getClass());
+        runner.builder()
+            .systemProperty("mock_server_port", String.valueOf(mockServerRule.getPort()))
+            .relativeTo(getClass());
+        return runner;
     }
 }
