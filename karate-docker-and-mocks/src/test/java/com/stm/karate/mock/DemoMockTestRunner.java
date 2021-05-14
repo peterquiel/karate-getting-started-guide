@@ -1,23 +1,16 @@
 package com.stm.karate.mock;
 
-import com.intuit.karate.core.MockServer;
 import com.intuit.karate.junit5.Karate;
-import com.intuit.karate.resource.ResourceUtils;
-import org.junit.Rule;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import com.stm.karate.mock.util.KarateMockServerExtension;
 import org.junit.jupiter.api.extension.RegisterExtension;
-
-import java.io.File;
 
 /**
  * This is a JUnit runner for the `demo-mock-test.feature`.
  *
- * It starts a Karate Mock `demo-mock.feature` and runs the
- * `demo-mock-test.feature`.
- *
+ * It starts a Karate Mock `demo-mock.feature` using a junit5 extension 
+ * and runs the `demo-mock-test.feature`.
  */
-public class DemoMockTestRunner  {
+public class DemoMockTestRunner {
 
     @RegisterExtension
     static KarateMockServerExtension mockServerRule = KarateMockServerExtension
@@ -26,10 +19,8 @@ public class DemoMockTestRunner  {
     @Karate.Test
     Karate testDemoMockServer() {
 
-        final Karate runner = Karate.run("demo-mock-test");
-        runner.builder()
+        return Karate.run("demo-mock-test")
             .systemProperty("mock_server_port", String.valueOf(mockServerRule.getPort()))
             .relativeTo(getClass());
-        return runner;
     }
 }

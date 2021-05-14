@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    def karateVersion = '0.9.9.RC4'
+    def karateVersion = '1.0.1'
 
     testImplementation "com.intuit.karate:karate-core:$karateVersion"
     testImplementation "com.intuit.karate:karate-junit5:$karateVersion"

@@ -1,4 +1,4 @@
-Feature: Testing our demo mock server
+Feature: A demo mock test started from a junit runner
 
   Background:
     * match karate.properties['mock_server_port'] == '#string'
