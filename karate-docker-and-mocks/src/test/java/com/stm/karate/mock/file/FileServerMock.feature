@@ -26,7 +26,7 @@ Feature: Mock for File Store Api
      * files[fileId] = {id: fileId, name: filePart.filename, contentType: filePart.contentType, content: base64EncodedContent}
      * def response = files[fileId]
 
-   Scenario: pathMatches('files/{fileId}') && methodIs('get') && acceptContains('json')
+   Scenario: pathMatches('files/{fileId}') && methodIs('get')
     * def response = files[pathParams.fileId]
 
   Scenario: pathMatches('files/{fileId}/content') && methodIs('get')
