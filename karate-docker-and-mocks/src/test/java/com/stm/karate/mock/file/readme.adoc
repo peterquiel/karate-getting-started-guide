@@ -1,0 +1,7 @@
+== Mock A File Server With Karate Test Framework
+
+The `FileServerMock.feature` is a karate file server mock and the `FileServerMockTest.feature` is a test for that mock.
+
+Just execute `FileServerMockTest.feature` with your favorite IDE.
+
+I created these files as a reference for my blog post https://software-that-matters.com/2021/07/02/mock-a-file-server-with-karate-test-framework/[Mock A file Server With Karate Test Framework].

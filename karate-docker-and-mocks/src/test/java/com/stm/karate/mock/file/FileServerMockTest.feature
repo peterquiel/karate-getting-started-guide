@@ -4,15 +4,17 @@ Feature: Testing File Server Mock
     * def startMockServer = () => karate.start('FileServerMock.feature').port
     * def port = callonce startMockServer
     * url 'http://localhost:' + port
-    * def decode = (base64Str) => {return new java.lang.String(java.util.Base64.getDecoder().decode(base64Str))}
   
-  Scenario: Post a new file and get it
+  Scenario: Post a new file and get it file meta data
     Given path 'files'
     * def expectedFileContent = "Content of our test file."
     * multipart file file =  {value: #(expectedFileContent), filename: "test.txt", contentType: 'text/plain' }
     When method post
     Then status 200
     * match response == {id:"#number", name : "test.txt", content: "#string", contentType: "text/plain"}
+  
+  
+    * def decode = (base64Str) => {return new java.lang.String(java.util.Base64.getDecoder().decode(base64Str))}
     * def content = decode(response.content)
     * match content == expectedFileContent
 
@@ -24,7 +26,7 @@ Feature: Testing File Server Mock
     * def content = decode(response.content)
     * match content == expectedFileContent
     
-  Scenario: Get binary content from a posted file
+  Scenario: Post a new file and get binary content 
     Given path 'files'
     * def expectedFileContent = "Content of our test file."
     * multipart file file =  {value: #(expectedFileContent), filename: "test.txt", contentType: 'text/plain' }
